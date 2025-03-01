@@ -2,11 +2,12 @@ CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := megaphone
+SRC := megaphone.cpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(CXX) $(CXXFLAGS) $@.cpp -o $@
+$(NAME): $(SRC)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 
