@@ -1,16 +1,17 @@
 #pragma once
-
 #include "Contact.hpp"
 
 class PhoneBook {
 	public :
-		Contact	c[8];
-		int		nb;
-		int		curr;
-
 		PhoneBook();
+		void	command();
 		void	add();
 		void	printf();
 		void	search();
-		std::string	format(std::string s);
+
+	private :
+		Contact	c[8];
+		int		nb;
+		int		curr;
+		void	get_str(std::string prompt, std::string& val);
 };

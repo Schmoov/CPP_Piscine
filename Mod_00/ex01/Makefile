@@ -3,16 +3,18 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := hello_kitty
 
-SRC := PhoneBook.cpp Contact.cpp main.cpp
-OBJ := $(patsubst %.cpp, %.o, $(SRC))
+SRC := src/PhoneBook.cpp src/Contact.cpp src/main.cpp
+OBJ := $(patsubst src/%.cpp, .obj/%.o, $(SRC))
+INC := -Iinc
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
 
-%.o : %.cpp
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
+.obj/%.o : src/%.cpp
+	@ mkdir -p .obj
+	$(CXX) $(CXXFLAGS) $(INC) -c $^ -o $@
 
 clean:
 	rm -f $(OBJ)

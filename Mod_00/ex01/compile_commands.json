@@ -1,0 +1,53 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinc",
+      "-c",
+      "-o",
+      ".obj/PhoneBook.o",
+      "src/PhoneBook.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_00/ex01",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/src/PhoneBook.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/.obj/PhoneBook.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinc",
+      "-c",
+      "-o",
+      ".obj/Contact.o",
+      "src/Contact.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_00/ex01",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/src/Contact.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/.obj/Contact.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-Iinc",
+      "-c",
+      "-o",
+      ".obj/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_00/ex01",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/src/main.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_00/ex01/.obj/main.o"
+  }
+]
