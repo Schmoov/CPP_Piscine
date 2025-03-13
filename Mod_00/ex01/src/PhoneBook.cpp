@@ -45,8 +45,8 @@ void	PhoneBook::search()
 		std::cout << "Phonebook is empty\n";
 		return ;
 	}
-	std::cout << "First Name|Last Name |Nickname  |Number    |Secret    \n\n";
 	for (int i = 0; i < nb; i++) {
+		std::cout << std::setw(10) << std::right << i + 1 << '|';
 		c[i].print_format();
 	}
 	int	idx;

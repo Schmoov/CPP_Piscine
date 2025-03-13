@@ -10,9 +10,9 @@ std::string	Contact::format(std::string& s)
 
 void	Contact::print_format()
 {
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 3; i++) {
 		std::cout << std::setw(10) << std::right
-			<< format(info[i]) << (i == 4 ? '\n' : '|');
+			<< format(info[i]) << (i == 2 ? '\n' : '|');
 	}
 }
 
