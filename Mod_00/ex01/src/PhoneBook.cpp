@@ -3,7 +3,7 @@
 void	PhoneBook::get_str(std::string prompt, std::string& val)
 {
 	std::cout << prompt;
-	std::cin >> val;
+	std::getline(std::cin, val);
 	if (std::cin.eof())
 		throw std::string("EOF");
 }
@@ -20,10 +20,12 @@ void	PhoneBook::command()
 	get_str("Enter a command : ", command);
 	if (command == "EXIT")
 		throw std::string("EXIT");
-	if (command == "ADD")
+	else if (command == "ADD")
 		add();
-	if (command == "SEARCH")
+	else if (command == "SEARCH")
 		search();
+	else
+		std::cout << "Invalid command\n";
 }
 
 void	PhoneBook::add()
@@ -39,15 +41,29 @@ void	PhoneBook::add()
 
 void	PhoneBook::search()
 {
-	std::cout << "First Name|Last Name |Nickname  |Number    |Secret    \n";
+	if (!nb) {
+		std::cout << "Phonebook is empty\n";
+		return ;
+	}
+	std::cout << "First Name|Last Name |Nickname  |Number    |Secret    \n\n";
 	for (int i = 0; i < nb; i++) {
 		c[i].print_format();
 	}
 	int	idx;
 	std::cout << "Choose entry : ";
 	std::cin >> idx;
-	if (idx < 1 || idx > nb)
-		std::cout << "Pathetic" << std::endl;
-	else
-		c[idx - 1].print_full();
+	while (idx < 1 || idx > nb) {
+		std::cin.clear();
+		std::cin.ignore(1 << 20, '\n');
+		if (std::cin.eof())
+			throw std::string("EOF");
+		std::cout << "Please enter a valid entry (between 1 and " << nb << ")\n";
+		std::cout << "Choose entry : ";
+		std::cin >> idx;
+	}
+	std::cin.clear();
+	std::cin.ignore(1 << 20, '\n');
+	if (std::cin.eof())
+		throw std::string("EOF");
+	c[idx - 1].print_full();
 }	
