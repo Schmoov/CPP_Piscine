@@ -4,10 +4,11 @@
 #include <iomanip>
 
 class Contact {
-	public :
-		std::string	info[5];
-		void print_format();
-		void print_full();
-	private :
-		std::string	format(std::string& s);
+public :
+	void	setInfo(std::string& content, int key);
+	void	printFormat();
+	void	printFull();
+private :
+	std::string	info[5];
+	std::string	format(std::string& s);
 };

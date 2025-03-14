@@ -1,5 +1,10 @@
 #include "Contact.hpp"
 
+void	Contact::setInfo(std::string& content, int key)
+{
+	info[key] = content;
+}
+
 std::string	Contact::format(std::string& s)
 {
 	if (s.size() > 10)
@@ -8,7 +13,7 @@ std::string	Contact::format(std::string& s)
 		return s;
 }
 
-void	Contact::print_format()
+void	Contact::printFormat()
 {
 	for (int i = 0; i < 3; i++) {
 		std::cout << std::setw(10) << std::right
@@ -16,7 +21,7 @@ void	Contact::print_format()
 	}
 }
 
-void	Contact::print_full()
+void	Contact::printFull()
 {
 	for (int i = 0; i < 5; i++) {
 		std::cout << info[i] << '\n';

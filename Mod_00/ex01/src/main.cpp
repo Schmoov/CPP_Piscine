@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-void	main_loop()
+void	mainLoop()
 {
 	PhoneBook	book;
 	while (true) {
@@ -11,7 +11,7 @@ void	main_loop()
 int	main()
 {
 	try {
-		main_loop();
+		mainLoop();
 	}
 	catch (std::string s) {
 		if (s == "EOF")
