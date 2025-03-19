@@ -3,7 +3,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Brainz
 
-SRC := main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC := main.cpp Zombie.cpp zombieHorde.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)

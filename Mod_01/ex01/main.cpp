@@ -2,18 +2,12 @@
 
 int main()
 {
-	std::string sName("Stacky");
-	Zombie s(sName);
-
-	Zombie* heap = newZombie("Hippy");
-
-	randomChump("Nesty");
-
-	heap->announce();
-	s.announce();
-
-	std::cout << "Hippy and Stacky are still alive\n";
-	delete heap;
-	std::cout << "Only Stacky left\n";
+	Zombie* littleHorde = zombieHorde(1, "Remi");
+	Zombie* bigHorde = zombieHorde(7, "Clony");
+	littleHorde[0].announce();
+	for (int i = 0; i < 7; i++)
+		bigHorde[i].announce();
+	delete[] bigHorde;
+	delete[] littleHorde;
 }
 
