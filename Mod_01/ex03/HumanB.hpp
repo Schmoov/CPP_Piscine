@@ -3,7 +3,7 @@
 
 class HumanB {
 public :
-	HumanB(std::string& n);
+	HumanB(const std::string& n);
 	void attack();
 	void setWeapon(Weapon& w);
 private :

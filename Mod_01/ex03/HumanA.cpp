@@ -2,11 +2,11 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-HumanA::HumanA(char& n, Weapon& w)
+HumanA::HumanA(const std::string& n, Weapon& w)
 	: name(n), weapon(w) {}
 
 void HumanA::attack()
 {
-	std::cout << name << " attacks wiht their "
+	std::cout << name << " attacks with their "
 		<< weapon.getType() << "\n";
 }

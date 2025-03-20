@@ -1,9 +1,9 @@
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Brainz
+NAME := Mortals
 
-SRC := main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC := HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)
