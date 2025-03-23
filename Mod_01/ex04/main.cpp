@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 void findAndReplace(std::string& s, const std::string& find, const std::string& replace, size_t pos = 0);
 
@@ -23,8 +24,9 @@ int main(int argc, char* argv[])
 		std::cerr << "Could not open \"" << argv[1] << "\"\n";
 		return EXIT_FAILURE;
 	}
-	std::string str;
-	std::getline(input, str);
+	std::ostringstream buf;
+	buf << input.rdbuf();
+	std::string str = buf.str();
 	input.close();
 
 	findAndReplace(str, argv[2], argv[3]);
