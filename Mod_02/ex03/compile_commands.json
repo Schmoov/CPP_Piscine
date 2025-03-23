@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-c",
+      "-o",
+      ".obj/main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_02/ex02",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_02/ex02/main.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_02/ex02/.obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-c",
+      "-o",
+      ".obj/Fixed.o",
+      "Fixed.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_02/ex02",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_02/ex02/Fixed.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_02/ex02/.obj/Fixed.o"
+  }
+]
