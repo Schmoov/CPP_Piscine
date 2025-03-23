@@ -1,7 +1,7 @@
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Zero
+NAME := Fixed
 
 SRC := main.cpp Fixed.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))

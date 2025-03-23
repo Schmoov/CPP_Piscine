@@ -1,6 +1,4 @@
 #include <ostream>
-#define FIXED_MAX (INT_MAX >> frac)
-#define FIXED_MIN (-((INT_MAX >> frac) + 1))
 
 class Fixed {
 private:
@@ -22,4 +20,4 @@ public:
 	int toInt() const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed n);
+std::ostream& operator<<(std::ostream& os, const Fixed& n);

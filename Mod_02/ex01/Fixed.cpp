@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <climits>
+#include <cmath>
 
 /*
 //Skill issue edition :
@@ -56,30 +56,29 @@ void Fixed::setRawBits(int const raw)
 }
 
 //new
+
+//Overflow is UB the rest works
 Fixed::Fixed(const int n)
 {
 	std::cerr << "Int constructor called\n";
-	if (n > FIXED_MAX || n < FIXED_MIN)
-		throw "overflow";
 	val = n << frac;
 }
 
+//Implicit casting like its nothing
 Fixed::Fixed(const float n)
 {
 	std::cerr << "Float constructor called\n";
-	if (n > FIXED_MAX || n < FIXED_MIN)
-		throw "overflow";
-	val = (int)(n * (1 << frac));
+	val = roundf(n * (1 << frac));
 }
 
 float Fixed::toFloat() const
 {
-	return val/(float)(1<<8);
+	return static_cast<float>(val) / (1 << frac);
 }
 
 int Fixed::toInt() const
 {
-	return val>>8;
+	return val >> frac;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& n)
