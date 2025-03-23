@@ -18,12 +18,25 @@ public:
 	int toInt() const;
 
 	//new
-	bool operator>(const Fixed& n);
-	bool operator<(const Fixed& n);
-	bool operator>=(const Fixed& n);
-	bool operator<=(const Fixed& n);
-	bool operator==(const Fixed& n);
-	bool operator!=(const Fixed& n);
+	bool operator>(const Fixed& n) const;
+	bool operator<(const Fixed& n) const;
+	bool operator>=(const Fixed& n) const;
+	bool operator<=(const Fixed& n) const;
+	bool operator==(const Fixed& n) const;
+	bool operator!=(const Fixed& n) const;
+	Fixed operator+(const Fixed& n) const;
+	Fixed operator-() const;
+	Fixed operator-(const Fixed& n) const;
+	Fixed operator*(const Fixed& n) const;
+	Fixed operator/(const Fixed& n) const;
+	Fixed& operator++();
+	Fixed operator++(int);
+	Fixed& operator--();
+	Fixed operator--(int);
+	static Fixed& min(Fixed& a, Fixed& b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);
+	static Fixed& max(Fixed& a, Fixed& b);
+	static const Fixed& max(const Fixed& a, const Fixed& b);
 
 	static const Fixed epsilon;
 	static const Fixed& getEpsilon();
