@@ -7,10 +7,12 @@ private:
 	const Fixed y;
 public:
 	Point();
-	Point(const Point& a);
+	Point(const Point& p);
 	Point(const float& nx, const float& ny);
 	~Point();
-	Point& operator=(const Point& t);
+	Point& operator=(const Point& p);
+	const Fixed& getX() const;
+	const Fixed& getY() const;
 };
 
 bool bsp(Point const a, Point const , Point const c, Point const point);
