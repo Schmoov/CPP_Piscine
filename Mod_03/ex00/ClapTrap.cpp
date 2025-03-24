@@ -7,12 +7,12 @@ ClapTrap::ClapTrap() : name("Undefined"), hp(10), mp(10), atk(0)
 	std::cerr << "Built default ClapTrap\n";
 }
 
-ClapTrap::ClapTrap(const ClapTrap& c) : name(c.name), hp(c.hp), mp(c.mp), atk(c.atk)
+ClapTrap::ClapTrap(const std::string& name) : name(name), hp(10), mp(10), atk(0)
 {
 	std::cerr << "Built ClapTrap \"" << name << "\"\n";
 }
 
-ClapTrap::ClapTrap(std::string& name) : name(name), hp(10), mp(10), atk(0)
+ClapTrap::ClapTrap(const ClapTrap& c) : name(c.name), hp(c.hp), mp(c.mp), atk(c.atk)
 {
 	std::cerr << "Built a copy of ClapTrap \"" << name << "\"\n";
 }
@@ -52,7 +52,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	hp = amount > hp ? 0 : hp - amount;
+	hp = amount > static_cast<unsigned int>(hp) ? 0 : hp - amount;
 	std::cerr << "ClapTrap \"" << name
 		<< "\" took " << amount << " points of damage!\n";
 }
