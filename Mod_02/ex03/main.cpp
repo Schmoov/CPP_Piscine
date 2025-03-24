@@ -1,16 +1,21 @@
-#include "Fixed.hpp"
+#include "Point.hpp"
 #include <iostream>
 
-#include <iostream>
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+int main()
+{
+	float p[3][2];
+	std::cout << "Enter 3 coordinates:\n";
+	std::cin >> p[0][0] >> p[0][1];
+	std::cin >> p[1][0] >> p[1][1];
+	std::cin >> p[2][0] >> p[2][1];
+
+	Point a(p[0][0], p[0][1]);
+	Point b(p[1][0], p[1][1]);
+	Point c(p[2][0], p[2][1]);
+	for (float y = 10.0; y >= -10.0; y--) {
+		for (float x = -10.0; x <= 10.0; x++) {
+			std::cout << (bsp(a, b, c, Point(x,y)) ? "X|" : "_|");
+		}
+		std::cout << "\n";
+	}
 }

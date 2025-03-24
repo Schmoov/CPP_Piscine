@@ -33,8 +33,13 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed y3 = c.getY();
 	Fixed x = point.getX();
 	Fixed y = point.getY();
-	Fixed v1 = ((y2 - y3)*(x - x3) + (x3 - x2)*(y - y3)) / ((y2 - y3)*(x1 - x3) + (x3 - x2)*(y1 - y3));
-	Fixed v2 = ((y3 - y1)*(x - x3) + (x1 - x3)*(y - y3)) / ((y2 - y3)*(x1 - x3) + (x3 - x2)*(y1 - y3));
+
+	Fixed dotProd = (y2-y3)*(x1-x3) + (x3-x2)*(y1-y3);
+	if (dotProd == Fixed(0))
+		return false;
+	Fixed v1 = ((y2-y3)*(x-x3) + (x3-x2)*(y-y3)) / dotProd;
+	Fixed v2 = ((y3-y1)*(x-x3) + (x1-x3)*(y-y3)) / dotProd;
+	Fixed v3 = Fixed(1) - v1 - v2;
 
 	return (v1 > 0 && v2 > 0 && v1+v2 < 1);
 }

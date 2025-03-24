@@ -135,10 +135,12 @@ Fixed Fixed::operator*(const Fixed& n) const
 	return res;
 }
 
+//int raw = (getRawBits()<<frac) / n.getRawBits();
+//this seems less precise than the float one
 Fixed Fixed::operator/(const Fixed& n) const
 {
 	Fixed res;
-	int raw = roundf(static_cast<float>(getRawBits()) / n.getRawBits());
+	int raw = roundf((static_cast<float>(1<<frac)*getRawBits()) / n.getRawBits());
 	res.setRawBits(raw);
 	return res;
 }
