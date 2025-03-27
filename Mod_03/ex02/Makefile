@@ -1,9 +1,9 @@
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Scav
+NAME := Frag
 
-SRC := main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC := main.cpp ClapTrap.cpp FragTrap.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)

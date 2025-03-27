@@ -5,14 +5,12 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cerr << "Built default ScavTrap\n";
-	hp = 100;
-	mp = 50;
-	atk = 20;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& n) : ClapTrap()
 {
-	std::cerr << "Built ScavTrap \"" << name << "\"\n";
+	std::cerr << "Built ScavTrap \"" << n << "\"\n";
+	name = n;
 	hp = 100;
 	mp = 50;
 	atk = 20;
@@ -52,27 +50,7 @@ void ScavTrap::attack(const std::string& target)
 	}
 }
 
-
-void ScavTrap::takeDamage(unsigned int amount)
+void ScavTrap::guardGate()
 {
-	hp = amount > static_cast<unsigned int>(hp) ? 0 : hp - amount;
-	std::cerr << "ScavTrap \"" << name
-		<< "\" took " << amount << " points of damage!\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (hp < 1) {
-		std::cerr << "ScavTrap \"" << name
-			<< "\" is too DEAD to repair\n";
-	} else if (mp < 1) {
-		std::cerr << "ScavTrap \"" << name
-			<< "\" is too TIRED to repair\n";
-	} else {
-		mp--;
-		std::cerr << "ScavTrap \"" << name
-			<< "\" repairs itself from " << hp
-			<< " to " << hp+amount << " hit points !\n";
-		hp+=amount;
-	}
+	std::cerr << "ScavTrap \"" << name << "\"is now in Gate keeper mode\n";
 }

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-ClapTrap::ClapTrap() : name("Undefined"), hp(10), mp(10), atk(0)
+ClapTrap::ClapTrap()
 {
 	std::cerr << "Built default ClapTrap\n";
 }
