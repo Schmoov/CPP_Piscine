@@ -16,4 +16,6 @@ int main()
 	d.takeDamage(420);
 	d.beRepaired(1000);
 	d.attack("Ennemy");
+
+	ClapTrap cpy((d));
 }

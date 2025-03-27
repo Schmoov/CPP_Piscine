@@ -15,4 +15,6 @@ int main()
 	for (int i = 0; i < 10; i++)
 		s.beRepaired(0);
 	s.attack("Ennemy");
+
+	ScavTrap cpy((s));
 }

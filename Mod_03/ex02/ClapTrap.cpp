@@ -36,14 +36,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& c)
 void ClapTrap::attack(const std::string& target)
 {
 	if (hp < 1) {
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" is too DEAD to attack\n";
 	} else if (mp < 1) {
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" is too TIRED to attack\n";
 	} else {
 		mp--;
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" attacks \"" << target
 			<< "\", causing " << atk << " points of damage!\n";
 	}
@@ -53,21 +53,21 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	hp = amount > static_cast<unsigned int>(hp) ? 0 : hp - amount;
-	std::cerr << "ClapTrap \"" << name
+	std::cout << "ClapTrap \"" << name
 		<< "\" took " << amount << " points of damage!\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hp < 1) {
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" is too DEAD to repair\n";
 	} else if (mp < 1) {
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" is too TIRED to repair\n";
 	} else {
 		mp--;
-		std::cerr << "ClapTrap \"" << name
+		std::cout << "ClapTrap \"" << name
 			<< "\" repairs itself from " << hp
 			<< " to " << hp+amount << " hit points !\n";
 		hp+=amount;
