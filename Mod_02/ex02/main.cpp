@@ -15,6 +15,8 @@ int main( void ) {
 	std::cout << "End of example\n";
 	Fixed c(30);
 	Fixed d =10;
+	std::cout << "min(10,10+eps) is :" << Fixed::min(d, d+Fixed::epsilon) << std::endl;
+	std::cout << "max(10,10+eps) is :" << Fixed::max(d, d+Fixed::epsilon) << std::endl;
 	std::cout << c / d << std::endl;
 	std::cout << d / c << std::endl;
 	a = -14;
