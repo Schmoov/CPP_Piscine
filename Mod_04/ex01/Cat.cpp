@@ -11,17 +11,16 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat& a) : Animal(a)
 {
-	brain = new Brain;
-	brain = a.brain;
+	brain = new Brain(*a.brain);
 	std::cerr << "Built Cat copy of \"" << a.type << "\"" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& a)
 {
-	brain = new Brain;
-	brain = a.brain;
-	if (this != &a)
+	if (this != &a) {
 		Animal::operator=(a);
+		*brain = *a.brain;
+	}
 	return *this;
 }
 
@@ -34,10 +33,4 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
-}
-
-void Cat::thinkOutLoud() const
-{
-	for (int i = 0; i < 100 && brain->ideas[i] != ""; i++)
-		std::cout << brain->ideas[i] << std::endl;
 }

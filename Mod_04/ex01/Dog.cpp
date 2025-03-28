@@ -19,11 +19,11 @@ Dog::Dog(const Dog& a) : Animal(a)
 
 Dog& Dog::operator=(const Dog& a)
 {
-	brain = new Brain;
-	brain = a.brain;
-	idea_nb = a.idea_nb;
-	if (this != &a)
+	if (this != &a) {
 		Animal::operator=(a);
+		*brain = *a.brain;
+		idea_nb = a.idea_nb;
+	}
 	return *this;
 }
 
