@@ -3,9 +3,9 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character {
+class Character : public ICharacter {
 private:
-	const std::string name;
+	std::string name;
 	AMateria* inv[4];
 	int full;
 public:

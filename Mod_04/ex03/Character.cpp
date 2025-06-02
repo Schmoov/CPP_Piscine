@@ -12,6 +12,7 @@ Character::Character(const Character& other)
 
 Character& Character::operator=(const Character& other) {
 	if (&other != this) {
+		name = other.name;
 		full = other.full;
 		for (int i = 0; i < 4; i++)
 			if (full & (1 << i))

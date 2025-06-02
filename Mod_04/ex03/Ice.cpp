@@ -1,10 +1,10 @@
 #include <iostream>
 #include "Ice.hpp"
-#include "AMateria.hpp"
+#include "Character.hpp"
 
 Ice::Ice() : AMateria("ice") {};
-Ice::Ice(const Ice& other) : AMateria("ice") {};
-Ice& Ice::operator=(const Ice& other) {return *this;}
+Ice::Ice(const Ice& other) : AMateria("ice") {(void) other;};
+Ice& Ice::operator=(const Ice& other) {(void) other; return *this;}
 Ice::~Ice() {};
 
 AMateria* Ice::clone() const {
