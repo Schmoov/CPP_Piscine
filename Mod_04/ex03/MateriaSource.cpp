@@ -2,7 +2,11 @@
 #include "AMateria.hpp"
 
 MateriaSource::MateriaSource() : full(0) {}
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++)
+		if (full & (1 << i))
+			delete inv[i];
+}
 MateriaSource::MateriaSource(const MateriaSource& other)
 : full(other.full) {
 	for (int i = 0; i < 4; i++)
@@ -11,6 +15,9 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 }
 MateriaSource& MateriaSource::operator=(const MateriaSource& other) {
 	if (&other != this) {
+		for (int i = 0; i < 4; i++)
+			if (full & (1 << i))
+				delete inv[i];
 		full = other.full;
 		for (int i = 0; i < 4; i++)
 			if (full & (1 << i))
@@ -23,7 +30,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (!(full & (1 << i))) {
 			full |= 1 << i;
-			inv[i] = m->clone();
+			inv[i] = m;
 			return ;
 		}
 	}
@@ -31,7 +38,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 
 AMateria* MateriaSource::createMateria(const std::string& type) {
 	for (int i = 0; i < 4; i++) {
-		if (!(full & (1 << i)) && inv[i]->getType() == type) {
+		if ((full & (1 << i)) && inv[i]->getType() == type) {
 			return inv[i]->clone();
 		}
 	}

@@ -1,4 +1,4 @@
-CXX := c++
+CXX := c++ -g3
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Interface

@@ -8,6 +8,8 @@ private:
 	std::string name;
 	AMateria* inv[4];
 	int full;
+	AMateria* garb[5000];
+	int gI;
 public:
 	 Character();
 	 Character(const Character& other);
