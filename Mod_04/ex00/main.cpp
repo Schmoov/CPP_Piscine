@@ -26,5 +26,13 @@ int main()
 	meta2->makeSound();
 	delete meta2;
 	delete i2;
+
+
+	/*
+	Dog Johny;
+	Dog Jonhy2 = Johny;
+	std::cout << Jonhy2.getType() << std::endl;
+	*/
+
 	return 0;
 }

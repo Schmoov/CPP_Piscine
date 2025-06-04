@@ -8,6 +8,7 @@ void peanutTheThird(const Dog& dog)
 {
 	Dog PeanutIII;
 	PeanutIII = dog;
+	PeanutIII = dog;
 	PeanutIII.brainWash("I has a bad feeling about dis");
 	PeanutIII.thinkOutLoud();
 }
