@@ -49,6 +49,8 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
+	if (idx < 0 || idx > 4)
+		return;
 	if (full & (1 << idx)) {
 		full ^= 1 << idx;
 		garb[gI++] = inv[idx];
@@ -56,6 +58,8 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
+	if (idx < 0 || idx > 4)
+		return;
 	if (!(full & (1<<idx)))
 		return;
 	inv[idx]->use(target);

@@ -20,5 +20,24 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
+
+	Character Bobby("leB");
+	Ice	m;
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.equip(m.clone());
+	Bobby.unequip(69);
+	Bobby.unequip(2);
+	Bobby.unequip(2);
+	Bobby.equip(m.clone());
+	Bobby.unequip(2);
+
+
 	return 0;
 }
