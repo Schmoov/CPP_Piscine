@@ -17,11 +17,10 @@ int main() {
 	} catch (std::exception & e) {
 		std::cout << "Oops \n";
 	}
-	/*
 	try {
 		Bureaucrat Hermes("Hermes", 151);
 	} catch (std::exception & e) {
 		std::cout << "Oops \n";
 	}
-	*/
+	Bureaucrat Hermes("Hermes", -2);
 }

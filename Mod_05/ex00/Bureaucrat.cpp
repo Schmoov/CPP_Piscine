@@ -3,8 +3,7 @@
 
 Bureaucrat::Bureaucrat()
 {std::cerr << "Skill Issue\n";}
-Bureaucrat::~Bureaucrat()
-{std::cerr << "Skill Issue\n";}
+Bureaucrat::~Bureaucrat() {}
 Bureaucrat::Bureaucrat(const Bureaucrat& other): name(other.name), grade(other.grade) {}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {(void) other; std::cerr << "Skill Issue\n"; return *this;}
