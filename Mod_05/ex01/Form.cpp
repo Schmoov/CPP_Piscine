@@ -11,8 +11,8 @@ Form& Form::operator=(const Form& other)
 
 const std::string& Form::getName() const {return name;}
 bool Form::isSigned() const {return sign;}
-const int Form::getSGrade() const {return sGrade;}
-const int Form::getEGrade() const {return eGrade;}
+int Form::getSGrade() const {return sGrade;}
+int Form::getEGrade() const {return eGrade;}
 Form::Form(std::string name, int sGrade, int eGrade)
 	: name(name),  sign(false), sGrade(sGrade), eGrade(eGrade) {
 	if (eGrade < 1 || sGrade < 1)

@@ -18,8 +18,8 @@ public:
 	Form(std::string name, int sGrade, int eGrade);
 	const std::string& getName() const;
 	bool isSigned() const;
-	const int getSGrade() const;
-	const int getEGrade() const;
+	int getSGrade() const;
+	int getEGrade() const;
 	
 	void beSigned(Bureaucrat& b);
 

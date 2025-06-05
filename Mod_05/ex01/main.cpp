@@ -1,26 +1,24 @@
 #include <exception>
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
 	try {
-		Bureaucrat Hermes("Hermes", 2);
+		Bureaucrat Hermes("Hermes", 18);
 		std::cout << Hermes;
-		Hermes.decr();
-		std::cout << Hermes;
-		Hermes.incr();
-		std::cout << Hermes;
-		Hermes.incr();
-		std::cout << Hermes;
-		Hermes.incr();
-		std::cout << Hermes;
+		Form f1("f1", 50, 2);
+		Form f2("f2", 2, 50);
+		std::cout << f1 << f2;
+		Hermes.signForm(f1);
+		Hermes.signForm(f1);
+		Hermes.signForm(f2);
 	} catch (std::exception & e) {
 		std::cout << "Oops \n";
 	}
 	try {
-		Bureaucrat Hermes("Hermes", 151);
+		Form f3("f3", 253, 2);
 	} catch (std::exception & e) {
 		std::cout << "Oops \n";
 	}
-	Bureaucrat Hermes("Hermes", -2);
 }

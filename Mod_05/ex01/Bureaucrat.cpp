@@ -51,5 +51,5 @@ void Bureaucrat::signForm(Form& f) {
 	if (f.isSigned())
 		std::cout << getName() << " signed " << f.getName() << "\n";
 	else
-		std::cout << getName() << " couldn't sign " << f.getName() << " because it's grade is too low\n";
+		std::cout << getName() << " couldn't sign " << f.getName() << " because their grade is too low\n";
 }
