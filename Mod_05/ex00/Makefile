@@ -3,7 +3,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := Bureaucrat
 
-SRC := main.cpp
+SRC := main.cpp Bureaucrat.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)
