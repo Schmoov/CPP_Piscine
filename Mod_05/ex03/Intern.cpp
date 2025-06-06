@@ -29,5 +29,10 @@ AForm* Intern::makeForm(std::string name, std::string target) {
 	std::string names[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
 	for (int i = 0; i < 3; i++) {
 		if (name == names[i]) {
-			res = arr[i](target);
-
+			std::cout << "Intern creates " << name << '\n';
+			return (this->*arr[i])(target);
+		}
+	}
+	std::cout << "Intern does know about any " << name << " form\n";
+	return nullptr;
+}
