@@ -41,5 +41,4 @@ void AForm::execute(const Bureaucrat& b) const {
 		throw AForm::GradeTooLowException();
 	if (!sign)
 		throw AForm::UnsignedForm();
-	return realExec();
 }

@@ -14,5 +14,5 @@ public:
 
 	RobotomyRequestForm(std::string target);
 	
-	void realExec() const;
+	void execute(const Bureaucrat& b) const;
 };

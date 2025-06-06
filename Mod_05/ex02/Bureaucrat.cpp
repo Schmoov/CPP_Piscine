@@ -48,7 +48,7 @@ void Bureaucrat::signForm(AForm& f) {
 	try {
 		f.beSigned(*this);
 	}
-	catch (AForm::GradeTooLowException) {}
+	catch (AForm::GradeTooLowException& e) {}
 	if (f.isSigned())
 		std::cout << getName() << " signed " << f.getName() << "\n";
 	else
@@ -59,6 +59,10 @@ void Bureaucrat::executeForm(const AForm& f) const {
 	try {
 		f.execute(*this);
 		std::cout << getName() << " executed " << f.getName();
+	} catch (AForm::UnsignedForm& e) {
+		std::cout << f.getName() << " cannot be executed until it is signed\n";
+	} catch (AForm::GradeTooLowException& e) {
+		std::cout << getName() << " has too low rank to execute " << f.getName() << '\n';
 	} catch (std::exception& e) {
 		std::cout << "an explicit error message\n";
 	}

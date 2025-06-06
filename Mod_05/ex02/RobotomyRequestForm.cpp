@@ -13,8 +13,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 	: AForm("Robotomy Request", 72, 45), target(target) {}
 
-void RobotomyRequestForm::realExec() const {
+void RobotomyRequestForm::execute(const Bureaucrat& b) const {
 	static int rand;
+	AForm::execute(b);
 	std::cout << "*Drilling noises*\n";
 	if (rand++ % 2)
 		std::cout << target << "'s robotomy suceeded\n";

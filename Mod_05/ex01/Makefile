@@ -1,7 +1,7 @@
 CXX := c++ -g3
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := Bureaucrat
+NAME := Form
 
 SRC := main.cpp Bureaucrat.cpp Form.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))

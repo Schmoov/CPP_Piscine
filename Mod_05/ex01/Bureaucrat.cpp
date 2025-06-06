@@ -47,7 +47,7 @@ void Bureaucrat::signForm(Form& f) {
 	try {
 		f.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException) {}
+	catch (Form::GradeTooLowException& e) {}
 	if (f.isSigned())
 		std::cout << getName() << " signed " << f.getName() << "\n";
 	else

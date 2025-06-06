@@ -13,6 +13,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: AForm("Presidential pardon", 25, 5), target(target) {}
 
-void PresidentialPardonForm::realExec() const {
+void PresidentialPardonForm::execute(const Bureaucrat& b) const {
+	AForm::execute(b);
 	std::cout << target << " has been pardoned by Zaphod Beeblebrox\n";
 }

@@ -14,7 +14,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: AForm("Shrubbery creation", 145, 137), target(target) {}
 
-void ShrubberyCreationForm::realExec() const {
+void ShrubberyCreationForm::execute(const Bureaucrat& b) const {
+	AForm::execute(b);
 	const std::string fName = target + "_shrubbery";
 	std::ofstream outfile(fName.c_str());
 	outfile << "  *\n / \\  *\n/   \\/ \\" << std::endl;
