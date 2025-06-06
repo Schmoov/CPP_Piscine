@@ -1,9 +1,9 @@
 CXX := c++ -g3
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := OohSuperLongClassNameThatIsVeryFunIndeed
+NAME := Intern
 
-SRC := AForm.cpp Bureaucrat.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC := AForm.cpp Bureaucrat.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)

@@ -8,7 +8,7 @@
 
 Intern::Intern() {}
 Intern::~Intern() {}
-Intern::Intern(const Intern& o) {}
+Intern::Intern(const Intern& o) {(void) o;}
 Intern& Intern::operator=(const Intern& o) {(void) o; return *this;}
 
 AForm* Intern::makeS(std::string target) {
@@ -24,7 +24,6 @@ AForm* Intern::makeR(std::string target) {
 }
 
 AForm* Intern::makeForm(std::string name, std::string target) {
-	AForm* res;
 	funcPtr arr[3] = {&Intern::makeS, &Intern::makeP, &Intern::makeR};
 	std::string names[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
 	for (int i = 0; i < 3; i++) {
@@ -34,5 +33,5 @@ AForm* Intern::makeForm(std::string name, std::string target) {
 		}
 	}
 	std::cout << "Intern does know about any " << name << " form\n";
-	return nullptr;
+	return NULL;
 }
