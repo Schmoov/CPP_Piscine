@@ -22,7 +22,7 @@ public:
 	int getEGrade() const;
 	
 	void beSigned(Bureaucrat& b);
-	void execute(Bureaucrat const & b) const;
+	virtual void execute(Bureaucrat const & b) const;
 
 	class GradeTooHighException : public std::exception {};
 	class GradeTooLowException : public std::exception {};
