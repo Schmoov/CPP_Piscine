@@ -58,7 +58,7 @@ void Bureaucrat::signForm(AForm& f) {
 void Bureaucrat::executeForm(const AForm& f) const {
 	try {
 		f.execute(*this);
-		std::cout << getName() << " executed " << f.getName();
+		std::cout << getName() << " executed " << f.getName() << '\n';
 	} catch (AForm::UnsignedForm& e) {
 		std::cout << f.getName() << " cannot be executed until it is signed\n";
 	} catch (AForm::GradeTooLowException& e) {
