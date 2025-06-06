@@ -12,7 +12,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {(void) o; std::cerr << "Skill Issue\n"; return *this;}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: AForm("Shrubbery creation", 145, 137), target(target) {}
+	: AForm("shrubbery creation", 145, 137), target(target) {}
 
 void ShrubberyCreationForm::realExec() const {
 	const std::string fName = target + "_shrubbery";

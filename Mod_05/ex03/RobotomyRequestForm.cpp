@@ -11,7 +11,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 {(void) o; std::cerr << "Skill Issue\n"; return *this;}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("Robotomy Request", 72, 45), target(target) {}
+	: AForm("robotomy request", 72, 45), target(target) {}
 
 void RobotomyRequestForm::realExec() const {
 	static int rand;
