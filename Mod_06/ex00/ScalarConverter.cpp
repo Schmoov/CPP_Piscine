@@ -13,7 +13,7 @@ void iConv(int n) {
 	else if (! std::isprint(static_cast<unsigned char>(n)))
 		std::cout << "Non displayable";
 	else
-		std::cout << static_cast<unsigned char>(n);
+		std::cout << "'" << static_cast<unsigned char>(n) << "'";
 	std::cout << '\n';
 
 	std::cout << "int: " << n << "\n";
@@ -28,7 +28,7 @@ void fConv(float f) {
 	else if (! std::isprint(static_cast<unsigned char>(f)))
 		std::cout << "Non displayable";
 	else
-		std::cout << static_cast<unsigned char>(f);
+		std::cout << "'" << static_cast<unsigned char>(f) << "'";
 	std::cout << '\n';
 
 	std::cout << "int: ";
@@ -49,7 +49,7 @@ void dConv(double d) {
 	else if (! std::isprint(static_cast<unsigned char>(d)))
 		std::cout << "Non displayable";
 	else
-		std::cout << static_cast<unsigned char>(d);
+		std::cout << "'" << static_cast<unsigned char>(d) << "'";
 	std::cout << '\n';
 
 	std::cout << "int: ";
