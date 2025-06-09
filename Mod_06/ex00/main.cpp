@@ -4,7 +4,7 @@
 int main(int argc, char **argv) {
 	if (argc != 2) {
 		std::cerr << "convert expects a single argument";
-		return EXIT_FAILURE;
+		return 1;
 	}
 	ScalarConverter::convert(argv[1]);
 }
