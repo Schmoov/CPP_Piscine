@@ -73,9 +73,9 @@ void PmergeMe::vecSort(std::vector<std::vector<int>>& in, int stride) {
 	std::cout << "j: ";
 	for (int i = 2; jacob(i) < (int)(rec.size() + (in.size()%2)); i++) {
 		for (int j = jacob(i+1); j > jacob(i); j--) {
-			std::cout << j << " ";
-			if ((j == (int)rec.size() && in.size()%2 == 0) || j >= (int)rec.size())
+			if ((j == (int)rec.size() && in.size()%2 == 0) || j > (int)rec.size())
 				continue;
+			std::cout << j << " ";
 			std::vector<int> toInsert;
 			int hi;
 			if (j == (int)rec.size() && (int)in.size()) {
