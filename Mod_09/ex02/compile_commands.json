@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-g3",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      ".obj/main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_09/ex02",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_09/ex02/main.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_09/ex02/.obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-g3",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      ".obj/PmergeMe.o",
+      "PmergeMe.cpp"
+    ],
+    "directory": "/home/parden/Github/CPP_Piscine/Mod_09/ex02",
+    "file": "/home/parden/Github/CPP_Piscine/Mod_09/ex02/PmergeMe.cpp",
+    "output": "/home/parden/Github/CPP_Piscine/Mod_09/ex02/.obj/PmergeMe.o"
+  }
+]
