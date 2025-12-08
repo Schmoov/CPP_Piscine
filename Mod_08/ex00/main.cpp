@@ -13,7 +13,8 @@ int main() {
 	vec.push_back(4);
 	vec.push_back(5);
 
-	std::list<int> lst(vec.begin(), vec.end());
+	const std::list<int> lst(vec.begin(), vec.end());
+	//std::list<int> lst(vec.begin(), vec.end());
 
 	std::vector<int>::iterator it = easyfind(vec, 2);
 	if (it != vec.end())
@@ -32,7 +33,7 @@ int main() {
 		std::cout << "Cannot find " << 4 << "\n";
 
 
-	std::list<int>::iterator it2 = easyfind(lst, 2);
+	std::list<int>::const_iterator it2 = easyfind(lst, 2);
 	if (it2 != lst.end())
 		std::cout << "Found " << *it2 << "\n";
 	else 

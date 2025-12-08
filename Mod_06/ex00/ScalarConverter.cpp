@@ -77,10 +77,16 @@ void fInf(const std::string& s) {
 void dInf(const std::string& s) {
 	std::cout << "char: impossible\nint: impossible\nfloat: " << s << "f\ndouble: " << s << "\n";
 }
+void cConv(const char c) {
+	std::cout << "char: " << c << "\nint: " << static_cast<int>(c) << "\nfloat: " <<"f\ndouble: " << "\n";
+}
+
 
 void ScalarConverter::convert(const std::string& s) {
 	char* end;
-	if (s == "+inf" || s == "-inf" || s == "nan")
+	if (s.size() == 3 && s[0] == '\'' && s[2] == '\'' && isascii(s[1]))
+		cConv(s[1]);
+	else if (s == "+inf" || s == "-inf" || s == "nan")
 		dInf(s);
 	else if (s == "+inff" || s == "-inff" || s == "nanf")
 		fInf(s);

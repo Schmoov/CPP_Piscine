@@ -10,6 +10,7 @@ public:
 	Array(const Array& o);
 	const Array& operator=(const Array& o);
 	T& operator[](unsigned int i);
+	const T& operator[](unsigned int i) const;
 	~Array();
 	unsigned int size() const;
 };

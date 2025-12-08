@@ -17,4 +17,19 @@ int main() {
 	//a2[-1];
 	Array<int> arr;
 	Array<int> a(0);
+	Array<int> b(arr);
+
+
+	const Array<int> v(4);
+	std::cout << v[2];
+	//v[2] = 4;
+	v.size();
+	const Array<int> v2(v);
+	//v = v2;
+	/*
+	Array<const int> u(4);
+	std::cout << u[2];
+	//u[2] = 4;
+	u.size();
+	*/
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <iterator>
 #include <vector>
 #include <stdexcept>
 
@@ -21,8 +22,9 @@ public:
 
 	template<typename IT>
 	void addRange(IT first, IT last) {
-		arr.insert(arr.end(), first, last);
-		if (arr.size() > cap)
+		size_t len = std::distance(first, last);
+		if (arr.size() + len  > cap)
 			throw std::logic_error("Span busted");
+		arr.insert(arr.end(), first, last);
 	}
 };
