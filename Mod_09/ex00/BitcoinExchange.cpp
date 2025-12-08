@@ -1,6 +1,7 @@
 #include "BitcoinExchange.hpp"
 #include <map>
 #include <fstream>
+#include <stdexcept>
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -12,8 +13,7 @@ BitcoinExchange::~BitcoinExchange() {}
 BitcoinExchange::BitcoinExchange() {
 	std::ifstream input("data.csv");
 	if (!input.is_open()) {
-		std::cout << "Error: No database\n";
-		throw;
+		throw std::runtime_error("Error: No database\n");
 	}
 	std::string line;
 	std::getline(input, line);

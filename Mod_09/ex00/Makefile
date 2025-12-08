@@ -3,7 +3,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 NAME := btc
 
-SRC := main.cpp BitcoinExchange.cpp db.cpp
+SRC := main.cpp BitcoinExchange.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)
