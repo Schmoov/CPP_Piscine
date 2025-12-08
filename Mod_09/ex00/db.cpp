@@ -1,7 +1,5 @@
-#include "BitcoinExchange.hpp"
 #include <map>
 #include <string>
-
 
 std::map<std::string, double> initDb() {
 std::map<std::string, double> res;

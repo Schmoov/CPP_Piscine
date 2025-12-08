@@ -5,12 +5,16 @@
 class BitcoinExchange {
 private:
 	std::map<std::string, double> db;
-	BitcoinExchange();
+
 	BitcoinExchange(const BitcoinExchange& o);
 	BitcoinExchange& operator=(const BitcoinExchange& o);
+
+	bool isValidDate(const std::string& date);
 public:
-	BitcoinExchange(const std::string& path);
+	BitcoinExchange();
 	~BitcoinExchange();
+
+	void solve(const char* path);
 };
 
 std::map<std::string, double> initDb();

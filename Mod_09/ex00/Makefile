@@ -1,9 +1,9 @@
 CXX := c++ -g3
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
-NAME := RPN
+NAME := btc
 
-SRC := main.cpp RPN.cpp
+SRC := main.cpp BitcoinExchange.cpp db.cpp
 OBJ := $(patsubst %.cpp, .obj/%.o, $(SRC))
 
 all: $(NAME)
