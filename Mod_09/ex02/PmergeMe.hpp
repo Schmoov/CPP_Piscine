@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
+#include <deque>
 
 class PmergeMe {
 private:
+	std::vector<int> nums;
 	static int count;
 	struct isLess {
 		template<typename T>
@@ -10,22 +12,33 @@ private:
 		template<typename T>
 		bool operator()(const std::vector<T>& x, const std::vector<T>& y) {; return isLess()(x[0], y[0]);}
 	};
-public:
-	int jacob(int n);
-	PmergeMe();
-	PmergeMe(const PmergeMe& other);
-	PmergeMe& operator=(const PmergeMe& other);
-	~PmergeMe();
-
 	int getCount() const;
 	void resetCount();
-	std::vector<int> parse(int argc, char **argv);
+
+	int jacob(int n);
+	void recurse(std::vector<std::vector<int>>& v, int stride=1);
+	void recurse(std::deque<std::deque<int>>& d, int stride=1);
 	void binInsert(
 		std::vector<std::vector<int>>& out,
 		std::vector<int>& aIndex,
 		std::vector<int>& toInsert,
 		int hi);
-	void vecSort(std::vector<std::vector<int>>& v, int stride=1);
+	void binInsert(
+		std::deque<std::deque<int>>& out,
+		std::deque<int>& aIndex,
+		std::deque<int>& toInsert,
+		int hi);
+
+	PmergeMe();
+	PmergeMe(const PmergeMe& other);
+	PmergeMe& operator=(const PmergeMe& other);
+public:
+	PmergeMe(std::vector<int>& nums);
+	~PmergeMe();
+
+	void vecSort();
+	void deqSort();
+
 
 };
 

@@ -1,18 +1,25 @@
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <limits>
 
 int main(int argc, char** argv) {
-	PmergeMe sorter;
-
-	std::vector<int> nums = sorter.parse(argc, argv);
-	std::vector<std::vector<int>> v;
-	for (int i = 0; i < (int)nums.size(); i++) {
-		v.push_back({nums[i]});
+	if (argc == 1) {
+		std::cerr << "PmergeMe expects a positive integer sequence\n";
+		return 69;
+	}
+	std::vector<int> nums(argc - 1);
+	for (int i = 1; i < argc; i++) {
+		char* end;
+		long long val = std::strtoll(argv[i], &end, 10);
+		if (argv[i][0] == 0 || val > std::numeric_limits<int>::max() || val < 0 || *end) {
+			std::cerr << "PmergeMe expects a positive integer sequence\n";
+			return 69;
+		}
+		nums[i-1] = val;
 	}
 
-	sorter.vecSort(v);
-	std::cout << "After:\t";
-	for (int i = 0; i < (int)v.size(); i++)
-		std::cout << v[i][0] << " ";
-	std::cout << "\nIt took " << sorter.getCount() << " comparisons !\n";
+	PmergeMe sorter(nums);
+
+	sorter.vecSort();
+	//sorter.deqSort();
 }
