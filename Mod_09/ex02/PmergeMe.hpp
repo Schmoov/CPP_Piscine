@@ -11,6 +11,8 @@ private:
 		bool operator()(const T& x, const T& y) {count++; return x < y;}
 		template<typename T>
 		bool operator()(const std::vector<T>& x, const std::vector<T>& y) {; return isLess()(x[0], y[0]);}
+		template<typename T>
+		bool operator()(const std::deque<T>& x, const std::deque<T>& y) {; return isLess()(x[0], y[0]);}
 	};
 	int getCount() const;
 	void resetCount();
@@ -38,7 +40,6 @@ public:
 
 	void vecSort();
 	void deqSort();
-
-
+	void stdSort();
 };
 

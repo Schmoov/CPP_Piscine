@@ -21,5 +21,6 @@ int main(int argc, char** argv) {
 	PmergeMe sorter(nums);
 
 	sorter.vecSort();
-	//sorter.deqSort();
+	sorter.deqSort();
+	sorter.stdSort();
 }

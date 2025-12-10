@@ -24,28 +24,27 @@ int PmergeMe::jacob(int n) {
 }
 
 void PmergeMe::vecSort() {
-	std::cout << "Before\t";
+	std::cerr << "Before\t";
 	std::vector<std::vector<int>> in;
 	for (int i = 0; i < (int)nums.size(); i++) {
 		in.push_back({nums[i]});
-		std::cout << in.back()[0] << " ";
+		std::cerr << in.back()[0] << " ";
 	}
-	std::cout << "\n";
+	std::cerr << "\n";
 
 	std::clock_t time = std::clock();
 	recurse(in);
 	time = std::clock() - time;
 
-	std::cout << "After\t";
+	std::cerr << "After\t";
 	for (int i = 0; i < (int)nums.size(); i++) {
-		std::cout << in[i][0] << " ";
+		std::cerr << in[i][0] << " ";
 	}
-	std::cout << "\nIt took " << 1000. * time / CLOCKS_PER_SEC << " ms and "
+	std::cerr << "\n";
+	std::cout << "Using vector it took " << 1000. * time / CLOCKS_PER_SEC << " ms and "
 		<< getCount() << " comparisons !\n";
 	resetCount();
 }
-
-
 
 void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
 	
@@ -106,6 +105,29 @@ void PmergeMe::binInsert(
 	}
 }
 
+void PmergeMe::deqSort() {
+	std::cerr << "Before\t";
+	std::deque<std::deque<int>> in;
+	for (int i = 0; i < (int)nums.size(); i++) {
+		in.push_back({nums[i]});
+		std::cerr << in.back()[0] << " ";
+	}
+	std::cerr << "\n";
+
+	std::clock_t time = std::clock();
+	recurse(in);
+	time = std::clock() - time;
+
+	std::cerr << "After\t";
+	for (int i = 0; i < (int)nums.size(); i++) {
+		std::cerr << in[i][0] << " ";
+	}
+	std::cerr << "\n";
+	std::cout << "Using deque it took " << 1000. * time / CLOCKS_PER_SEC << " ms and "
+		<< getCount() << " comparisons !\n";
+	resetCount();
+}
+
 void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
 	
 	std::deque<std::deque<int>> rec;
@@ -164,3 +186,25 @@ void PmergeMe::binInsert(
 			aIndex[i]++;
 	}
 }
+
+void PmergeMe::stdSort() {
+	std::cerr << "Before\t";
+	std::vector<int> in = nums;
+	for (int i = 0; i < (int)nums.size(); i++) {
+		std::cerr << in[i] << " ";
+	}
+	std::cerr << "\n";
+
+	std::clock_t time = std::clock();
+	std::sort(in.begin(), in.end(), isLess());
+	time = std::clock() - time;
+
+	std::cerr << "After\t";
+	for (int i = 0; i < (int)nums.size(); i++) {
+		std::cerr << in[i] << " ";
+	}
+	std::cout << "std::sort does it in " << 1000. * time / CLOCKS_PER_SEC << " ms and "
+		<< getCount() << " comparisons !\n";
+	resetCount();
+}
+
