@@ -7,12 +7,11 @@ private:
 	std::vector<int> nums;
 	static int count;
 	struct isLess {
+		bool operator()(const int& x, const int& y) {return count++, x < y;}
 		template<typename T>
-		bool operator()(const T& x, const T& y) {count++; return x < y;}
+		bool operator()(const std::vector<T>& x, const std::vector<T>& y) {return count++, x[0] < y[0];}
 		template<typename T>
-		bool operator()(const std::vector<T>& x, const std::vector<T>& y) {; return isLess()(x[0], y[0]);}
-		template<typename T>
-		bool operator()(const std::deque<T>& x, const std::deque<T>& y) {; return isLess()(x[0], y[0]);}
+		bool operator()(const std::deque<T>& x, const std::deque<T>& y) {return count++, x[0] < y[0];}
 	};
 	int getCount() const;
 	void resetCount();

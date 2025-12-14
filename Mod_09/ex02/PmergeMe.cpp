@@ -47,6 +47,15 @@ void PmergeMe::vecSort() {
 }
 
 void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
+	std::cerr << "Count: " << getCount() << "\n";
+	for (size_t i = 0; i < in.size(); i++) {
+		for (size_t j = 0; j < in[i].size(); j++) {
+			std::cerr << in[i][j] << " ";
+		}
+		std::cerr << "\n";
+	}
+	std::cerr << "~~~~~~\n";
+
 	
 	std::vector<std::vector<int>> rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
@@ -82,13 +91,14 @@ void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
 				hi = out.size();
 			}
 			else {
-				toInsert = {rec[j].begin() + stride, rec[j].end()};
+				toInsert.insert(toInsert.end(), rec[j].begin() + stride, rec[j].end());
 				hi = aIndex[j];
 			}
 			binInsert(out, aIndex, toInsert, hi);
 		}
 	}
 	in = out;
+	std::cerr << "Count: " << getCount() << "\n";
 }
 
 void PmergeMe::binInsert(
@@ -96,8 +106,18 @@ void PmergeMe::binInsert(
 		std::vector<int>& aIndex,
 		std::vector<int>& toInsert,
 		int hi) {
-	std::vector<std::vector<int>>::iterator it =
-		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	//std::vector<std::vector<int>>::iterator it =
+	//	std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int lo = 0;
+	while (hi > lo) {
+		int mid = lo + (hi-lo)/2;
+		if (out[mid][0] <= toInsert[0])
+			lo = mid + 1;
+		else
+			hi = mid;
+		count++;
+	}
+	std::vector<std::vector<int>>::iterator it = out.begin() + lo;
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
 		if (aIndex[i] >= it - out.begin())
@@ -129,6 +149,14 @@ void PmergeMe::deqSort() {
 }
 
 void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
+	std::cerr << "Count: " << getCount() << "\n";
+	for (size_t i = 0; i < in.size(); i++) {
+		for (size_t j = 0; j < in[i].size(); j++) {
+			std::cerr << in[i][j] << " ";
+		}
+		std::cerr << "\n";
+	}
+	std::cerr << "~~~~~~\n";
 	
 	std::deque<std::deque<int>> rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
@@ -164,13 +192,14 @@ void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
 				hi = out.size();
 			}
 			else {
-				toInsert = {rec[j].begin() + stride, rec[j].end()};
+				toInsert.insert(toInsert.end(), rec[j].begin() + stride, rec[j].end());
 				hi = aIndex[j];
 			}
 			binInsert(out, aIndex, toInsert, hi);
 		}
 	}
 	in = out;
+	std::cerr << "Count: " << getCount() << "\n";
 }
 			
 void PmergeMe::binInsert(
@@ -178,8 +207,18 @@ void PmergeMe::binInsert(
 		std::deque<int>& aIndex,
 		std::deque<int>& toInsert,
 		int hi) {
-	std::deque<std::deque<int>>::iterator it =
-		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	//std::deque<std::deque<int>>::iterator it =
+	//	std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int lo = 0;
+	while (hi > lo) {
+		int mid = lo + (hi-lo)/2;
+		if (out[mid][0] <= toInsert[0])
+			lo = mid + 1;
+		else
+			hi = mid;
+		count++;
+	}
+	std::deque<std::deque<int>>::iterator it = out.begin() + lo;
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
 		if (aIndex[i] >= it - out.begin())

@@ -1,4 +1,0 @@
-rm -rf .obj
-rm -f PmergeMe
-c++ -g3 -Wall -Wextra -Werror  -c main.cpp -o .obj/main.o
-c++ -g3 -Wall -Wextra -Werror  -c PmergeMe.cpp -o .obj/PmergeMe.o
