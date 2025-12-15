@@ -106,23 +106,12 @@ void PmergeMe::binInsert(
 		std::vector<int>& aIndex,
 		std::vector<int>& toInsert,
 		int hi) {
-	//std::cerr << "iCount: " << getCount() << "\n";
-	std::cerr << hi << '\n';
-	//std::vector<std::vector<int>>::iterator it =
-	//	std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
-	int lo = 0;
-	while (hi > lo) {
-		int mid = lo + (hi-lo)/2;
-		if (out[mid][0] <= toInsert[0])
-			lo = mid + 1;
-		else
-			hi = mid;
-		count++;
-	}
-	std::vector<std::vector<int>>::iterator it = out.begin() + lo;
+	std::vector<std::vector<int>>::iterator it =
+		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int idx = it - out.begin();
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
-		if (aIndex[i] >= lo)
+		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
 	std::cerr << "oCount: " << getCount() << "\n";
@@ -210,23 +199,12 @@ void PmergeMe::binInsert(
 		std::deque<int>& aIndex,
 		std::deque<int>& toInsert,
 		int hi) {
-	//std::cerr << "iCount: " << getCount() << "\n";
-	std::cerr << hi << '\n';
-	//std::deque<std::deque<int>>::iterator it =
-	//	std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
-	int lo = 0;
-	while (hi > lo) {
-		int mid = lo + (hi-lo)/2;
-		if (out[mid][0] <= toInsert[0])
-			lo = mid + 1;
-		else
-			hi = mid;
-		count++;
-	}
-	std::deque<std::deque<int>>::iterator it = out.begin() + lo;
+	std::deque<std::deque<int>>::iterator it =
+		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int idx = it - out.begin();
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
-		if (aIndex[i] >= lo)
+		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
 	std::cerr << "oCount: " << getCount() << "\n";
