@@ -25,9 +25,11 @@ int PmergeMe::jacob(int n) {
 
 void PmergeMe::vecSort() {
 	std::cerr << "Before\t";
-	std::vector<std::vector<int>> in;
+	std::vector<std::vector<int> > in;
 	for (int i = 0; i < (int)nums.size(); i++) {
-		in.push_back({nums[i]});
+		std::vector<int> tmp;
+		tmp.push_back(nums[i]);
+		in.push_back(tmp);
 		std::cerr << in.back()[0] << " ";
 	}
 	std::cerr << "\n";
@@ -46,14 +48,14 @@ void PmergeMe::vecSort() {
 	resetCount();
 }
 
-void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
-	std::vector<std::vector<int>> rec;
+void PmergeMe::recurse(std::vector<std::vector<int> >& in, int stride) {
+	std::vector<std::vector<int> > rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
 		if (isLess()(in[i], in[i + in.size()/2])) {
-			rec.emplace_back(in[i + in.size()/2]);
+			rec.push_back(in[i + in.size()/2]);
 			rec[i].insert(rec[i].end(), in[i].begin(), in[i].end());
 		} else {
-			rec.emplace_back(in[i]);
+			rec.push_back(in[i]);
 			rec[i].insert(rec[i].end(), in[i + in.size()/2].begin(), in[i + in.size()/2].end());
 		}
 	}
@@ -62,7 +64,7 @@ void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
 
 
 	std::vector<int> aIndex(rec.size());
-	std::vector<std::vector<int>> out(rec.size() + 1);
+	std::vector<std::vector<int> > out(rec.size() + 1);
 	out[0].insert(out[0].end(), rec[0].begin() + stride, rec[0].end());
 
 	for (int i = 1; i < (int)rec.size() + 1; i++) {
@@ -91,11 +93,11 @@ void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
 }
 
 void PmergeMe::binInsert(
-		std::vector<std::vector<int>>& out,
+		std::vector<std::vector<int> >& out,
 		std::vector<int>& aIndex,
 		std::vector<int>& toInsert,
 		int hi) {
-	std::vector<std::vector<int>>::iterator it =
+	std::vector<std::vector<int> >::iterator it =
 		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
 	int idx = it - out.begin();
 	out.insert(it, toInsert);
@@ -107,9 +109,11 @@ void PmergeMe::binInsert(
 
 void PmergeMe::deqSort() {
 	std::cerr << "Before\t";
-	std::deque<std::deque<int>> in;
+	std::deque<std::deque<int> > in;
 	for (int i = 0; i < (int)nums.size(); i++) {
-		in.push_back({nums[i]});
+		std::deque<int> tmp;
+		tmp.push_back(nums[i]);
+		in.push_back(tmp);
 		std::cerr << in.back()[0] << " ";
 	}
 	std::cerr << "\n";
@@ -128,14 +132,14 @@ void PmergeMe::deqSort() {
 	resetCount();
 }
 
-void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
-	std::deque<std::deque<int>> rec;
+void PmergeMe::recurse(std::deque<std::deque<int> >& in, int stride) {
+	std::deque<std::deque<int> > rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
 		if (isLess()(in[i], in[i + in.size()/2])) {
-			rec.emplace_back(in[i + in.size()/2]);
+			rec.push_back(in[i + in.size()/2]);
 			rec[i].insert(rec[i].end(), in[i].begin(), in[i].end());
 		} else {
-			rec.emplace_back(in[i]);
+			rec.push_back(in[i]);
 			rec[i].insert(rec[i].end(), in[i + in.size()/2].begin(), in[i + in.size()/2].end());
 		}
 	}
@@ -144,7 +148,7 @@ void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
 
 
 	std::deque<int> aIndex(rec.size());
-	std::deque<std::deque<int>> out(rec.size() + 1);
+	std::deque<std::deque<int> > out(rec.size() + 1);
 	out[0].insert(out[0].end(), rec[0].begin() + stride, rec[0].end());
 
 	for (int i = 1; i < (int)rec.size() + 1; i++) {
@@ -173,11 +177,11 @@ void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
 }
 			
 void PmergeMe::binInsert(
-		std::deque<std::deque<int>>& out,
+		std::deque<std::deque<int> >& out,
 		std::deque<int>& aIndex,
 		std::deque<int>& toInsert,
 		int hi) {
-	std::deque<std::deque<int>>::iterator it =
+	std::deque<std::deque<int> >::iterator it =
 		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
 	int idx = it - out.begin();
 	out.insert(it, toInsert);

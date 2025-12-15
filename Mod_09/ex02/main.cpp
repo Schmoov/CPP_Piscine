@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <cstdlib>
 #include <limits>
 
 int main(int argc, char** argv) {

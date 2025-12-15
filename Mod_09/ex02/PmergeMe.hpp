@@ -17,15 +17,15 @@ private:
 	void resetCount();
 
 	int jacob(int n);
-	void recurse(std::vector<std::vector<int>>& v, int stride=1);
-	void recurse(std::deque<std::deque<int>>& d, int stride=1);
+	void recurse(std::vector<std::vector<int> >& v, int stride=1);
+	void recurse(std::deque<std::deque<int> >& d, int stride=1);
 	void binInsert(
-		std::vector<std::vector<int>>& out,
+		std::vector<std::vector<int> >& out,
 		std::vector<int>& aIndex,
 		std::vector<int>& toInsert,
 		int hi);
 	void binInsert(
-		std::deque<std::deque<int>>& out,
+		std::deque<std::deque<int> >& out,
 		std::deque<int>& aIndex,
 		std::deque<int>& toInsert,
 		int hi);
