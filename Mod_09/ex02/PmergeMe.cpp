@@ -47,16 +47,6 @@ void PmergeMe::vecSort() {
 }
 
 void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
-	//std::cerr << "Count: " << getCount() << "\n";
-	for (size_t i = 0; i < in.size(); i++) {
-		for (size_t j = 0; j < in[i].size(); j++) {
-			std::cerr << in[i][j] << " ";
-		}
-		std::cerr << "\n";
-	}
-	std::cerr << "~~~~~~\n";
-
-	
 	std::vector<std::vector<int>> rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
 		if (isLess()(in[i], in[i + in.size()/2])) {
@@ -98,7 +88,6 @@ void PmergeMe::recurse(std::vector<std::vector<int>>& in, int stride) {
 		}
 	}
 	in = out;
-	//std::cerr << "Count: " << getCount() << "\n";
 }
 
 void PmergeMe::binInsert(
@@ -114,7 +103,6 @@ void PmergeMe::binInsert(
 		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
-	std::cerr << "oCount: " << getCount() << "\n";
 }
 
 void PmergeMe::deqSort() {
@@ -141,15 +129,6 @@ void PmergeMe::deqSort() {
 }
 
 void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
-	//std::cerr << "Count: " << getCount() << "\n";
-	for (size_t i = 0; i < in.size(); i++) {
-		for (size_t j = 0; j < in[i].size(); j++) {
-			std::cerr << in[i][j] << " ";
-		}
-		std::cerr << "\n";
-	}
-	std::cerr << "~~~~~~\n";
-	
 	std::deque<std::deque<int>> rec;
 	for (int i = 0; i < (int)in.size()/2; i++) {
 		if (isLess()(in[i], in[i + in.size()/2])) {
@@ -191,7 +170,6 @@ void PmergeMe::recurse(std::deque<std::deque<int>>& in, int stride) {
 		}
 	}
 	in = out;
-	//std::cerr << "Count: " << getCount() << "\n";
 }
 			
 void PmergeMe::binInsert(
@@ -207,27 +185,15 @@ void PmergeMe::binInsert(
 		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
-	std::cerr << "oCount: " << getCount() << "\n";
 }
 
 void PmergeMe::stdSort() {
-	std::cerr << "Before\t";
 	std::vector<int> in = nums;
-	for (int i = 0; i < (int)nums.size(); i++) {
-		std::cerr << in[i] << " ";
-	}
-	std::cerr << "\n";
-
 	std::clock_t time = std::clock();
 	std::sort(in.begin(), in.end(), isLess());
 	time = std::clock() - time;
 
-	std::cerr << "After\t";
-	for (int i = 0; i < (int)nums.size(); i++) {
-		std::cerr << in[i] << " ";
-	}
 	std::cout << "std::sort does it in " << 1000. * time / CLOCKS_PER_SEC << " ms and "
 		<< getCount() << " comparisons !\n";
 	resetCount();
 }
-
