@@ -98,9 +98,10 @@ void PmergeMe::binInsert(
 		int hi) {
 	std::vector<std::vector<int>>::iterator it =
 		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int idx = it - out.begin();
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
-		if (aIndex[i] >= it - out.begin())
+		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
 }
@@ -180,9 +181,10 @@ void PmergeMe::binInsert(
 		int hi) {
 	std::deque<std::deque<int>>::iterator it =
 		std::upper_bound(out.begin(), out.begin() + hi, toInsert, isLess());
+	int idx = it - out.begin();
 	out.insert(it, toInsert);
 	for (int i = 0; i < (int)aIndex.size(); i++) {
-		if (aIndex[i] >= it - out.begin())
+		if (aIndex[i] >= idx)
 			aIndex[i]++;
 	}
 }
